@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Run parity
-/parity/parity --config /etc/parityPoA/configPoAInit.toml daemon 1234
+/home/parity/bin/parity --config /etc/parityPoA/configPoAInit.toml daemon 1234
 
 sleep 10s
 
@@ -17,7 +17,7 @@ sleep 5s
 sed -i 's/AUTHORITY_ADDRESS/'$(cat /run/secrets/authority.$AUTHORITY_COMPANY.address)'/' /etc/parityPoA/configPoANode.toml;
 sed -i 's/AUTHORITY_COMPANY/'$AUTHORITY_COMPANY'/' /etc/parityPoA/configPoANode.toml;
 
-/parity/parity --config /etc/parityPoA/configPoANode.toml \
+/home/parity/bin/parity --config /etc/parityPoA/configPoANode.toml \
     --jsonrpc-port=$JSONRPC_PORT \
     --port=$NETWORK_PORT \
     --ws-port=$WS_PORT \
